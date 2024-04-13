@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h2 class="SKSSupermarket">SKS supermarket</h2>
+</header>
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return validateForm()" action="home.html" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter the Username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter the Password" required>
+        <a href="forgot Password.html">Forgot Password</a>
+        <input type="submit" value="Login">
+        <p>Don't have an account <a href="register.html">Register</a></p>
+    </form>
+</div>
+<script>
+    
+    
+    function validateForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        
+        var predefinedUsers = {
+            "sanjesh": "sanjesh123",
+            "sourav": "sourav123",
+            "sowndhariya": "sownd"
+        };
+
+        
+        if (!(username in predefinedUsers) || password !== predefinedUsers[username]) {
+            alert("Invalid username or password. Please try again.");
+            return false; 
+        }
+        return true;
+    }
+
+
+
+</script>
+</body>
+</html>
