@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="hstyle.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://www.toptal.com/designers/subtlepatterns/patterns/symphony.png');
+            background-size: cover;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        tfoot td {
+            font-weight: bold;
+        }
+        #add-item, #print-invoice {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        #add-item:hover, #print-invoice:hover {
+            background-color: #0056b3;
+        }
+        .remove-item {
+            padding: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #ff0000;
+        }
+        .remove-item:hover {
+            color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Groove Supermarket</h1>
+        <h3>Near Karpagam Institute of Technology, Coimbatore</h3>
+        <h2>Billing Invoice</h2>
+        <div id="invoice">
+            <div>
+                <p style="display: flex; float: right;">Bill Date: <span id="bill-date"></span></p>
+                <p style="display: flex; float: left;">Bill Number: <span id="bill-number">1</span></p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="invoice-items">
+                    <!-- Items will be added here dynamically -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Subtotal</td>
+                        <td id="subtotal">0</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Tax (5%)</td>
+                        <td id="tax">0</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Total</td>
+                        <td id="total">0</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button onclick="addItem()" id="add-item">Add Item</button>
+            <button onclick="printInvoice()" id="print-invoice">Print Invoice</button>
+        </div>
+    </div>
+    <script src="home.js"></script>
+    <script>
+        // Function to get current date and time in a readable format
+        function getCurrentDateTime() {
+            const currentDate = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+            return currentDate.toLocaleString('en-US', options);
+        }
+
+        // Set current date and time to the bill date element
+        document.getElementById('bill-date').textContent = getCurrentDateTime();
+    </script>
+</body>
+</html>

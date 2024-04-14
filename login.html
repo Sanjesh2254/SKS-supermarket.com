@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles to maintain the theme */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: url('https://st2.depositphotos.com/1021722/7053/i/450/depositphotos_70531635-stock-photo-art-spring-flowers-frame-background.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: #1d1d1d;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h2 class="SKSSupermarket">Groove Supermarket</h2>
+</header>
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return validateForm()" action="home.html" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter the Username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter the Password" required>
+        <a href="forgot Password.html">Forgot Password</a>
+        <input type="submit" value="Login">
+        <p>Don't have an account <a href="register.html">Register</a></p>
+    </form>
+</div>
+<script>
+    // Function to validate the login form
+    function validateForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        var predefinedUsers = {
+            "sanjesh": "sanjesh123",
+            "sourav": "sourav123",
+            "sowndhariya": "sownd"
+        };
+
+        if (!(username in predefinedUsers) || password !== predefinedUsers[username]) {
+            alert("Invalid username or password. Please try again.");
+            return false;
+        }
+        return true;
+    }
+</script>
+</body>
+</html>
